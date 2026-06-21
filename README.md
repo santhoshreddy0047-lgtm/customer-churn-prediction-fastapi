@@ -1,212 +1,129 @@
-# FastAPI Customer Churn Prediction
+# Customer Churn Prediction System using FastAPI & Machine Learning
 
-A complete machine learning application built with FastAPI that predicts customer subscription churn. Features a modern web interface for both single and batch predictions.
+A complete end-to-end Machine Learning application that predicts customer churn using customer subscription and engagement data. The application provides both real-time predictions through a web interface and batch predictions using CSV uploads.
 
-## 🚀 Features
+## Features
 
-- **Point Prediction**: Predict churn for individual customers with interactive form
-- **Batch Prediction**: Upload CSV files for bulk predictions with downloadable results
-- **Modern UI**: Clean, responsive interface with teal/cyan brand colors
-- **RESTful API**: Well-structured endpoints for easy integration
-- **Simple ML Pipeline**: Basic data cleaning and feature engineering
+* Real-time customer churn prediction
+* Batch prediction using CSV file uploads
+* Interactive web-based dashboard
+* Machine Learning model training and evaluation
+* RESTful API built with FastAPI
+* Downloadable prediction results
+* Responsive frontend interface
 
-## 📁 Project Structure
+## Project Structure
 
-```
-fastAPI_customer_churn/
+```text
+customer-churn-prediction-fastapi/
 ├── data/
-│   └── customer_subscription_churn_dataset.csv
 ├── frontend/
 │   └── index.html
 ├── models/
 │   └── churn_model.pkl
-├── downloads/
-├── venv/
 ├── create_model.py
 ├── main.py
 ├── requirements.txt
-├── .gitignore
-└── README.md
+├── README.md
+└── .gitignore
 ```
 
-## 🛠️ Installation
+## Technologies Used
 
-### Prerequisites
-- Python 3.8 or higher
-- pip package manager
+* Python
+* FastAPI
+* Scikit-learn
+* Pandas
+* NumPy
+* HTML5
+* CSS3
+* JavaScript
+* Git & GitHub
 
-### Setup Steps
+## Machine Learning Workflow
 
-1. **Clone the repository**
+1. Data Cleaning and Preprocessing
+2. Feature Engineering
+3. Model Training using Random Forest Classifier
+4. Model Evaluation
+5. Model Serialization using Pickle
+6. API Deployment using FastAPI
+
+## Model Performance
+
+* Accuracy: ~75%
+* Classification Type: Binary Classification
+* Target Variable: Customer Churn (Yes/No)
+
+## Installation
+
 ```bash
-git clone https://github.com/yourusername/fastapi-customer-churn-prediction.git
-cd fastapi-customer-churn-prediction
+git clone https://github.com/santhoshreddy0047-lgtm/customer-churn-prediction-fastapi.git
+
+cd customer-churn-prediction-fastapi
+
+pip install -r requirements.txt
 ```
 
-2. **Create virtual environment**
-```bash
-python -m venv venv
-```
+## Train the Model
 
-3. **Activate virtual environment**
-   - Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - Mac/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
-
-4. **Install dependencies**
-```bash
-pip install fastapi uvicorn pandas numpy scikit-learn python-multipart jinja2
-```
-
-5. **Generate requirements.txt** (optional)
-```bash
-pip freeze > requirements.txt
-```
-
-## 🎯 Usage
-
-### Train the Model
-
-Run the model training script first:
 ```bash
 python create_model.py
 ```
-This will:
-- Load and clean the data
-- Perform feature engineering
-- Train the model
-- Save it to `models/churn_model.pkl`
 
-### Start the Application
+## Run the Application
 
 ```bash
- uvicorn main:app --reload
+python main.py
 ```
 
-The application will start at: `http://localhost:8000`
+or
 
-### API Endpoints
-
-#### 1. Home Page
-```
-GET /
-```
-Serves the frontend interface
-
-#### 2. Single Prediction
-```
-POST /predict
-Content-Type: application/json
-
-{
-  "tenure_months": 29,
-  "plan_type": "Premium",
-  "region": "Central",
-  "avg_sessions_per_week": 6.11,
-  "avg_session_duration_minutes": 52.9,
-  "feature_usage_score": 29.9,
-  "days_since_last_login": 29,
-  "monthly_fee": 786,
-  "payment_method": "NetBanking",
-  "failed_payments_last_3_months": 1,
-  "discount_applied": "No",
-  "support_tickets_count": 0,
-  "avg_ticket_resolution_time_hours": 7.3,
-  "customer_satisfaction_score": 5,
-  "marketing_email_opens_last_30_days": 4
-}
+```bash
+uvicorn main:app --reload
 ```
 
-#### 3. Batch Prediction
+Application URL:
+
+```text
+http://127.0.0.1:8000
 ```
-POST /batch-predict
-Content-Type: multipart/form-data
 
-file: <csv_file>
+API Documentation:
+
+```text
+http://127.0.0.1:8000/docs
 ```
-Returns a CSV file with predictions
 
-## 📊 Dataset Features
+## Key Features Used for Prediction
 
-| Feature | Type | Description |
-|---------|------|-------------|
-| tenure_months | Numeric | Customer tenure in months |
-| plan_type | Categorical | Subscription plan (Premium, PRO, Pro) |
-| region | Categorical | Customer region (Central, North, South, West, East) |
-| avg_sessions_per_week | Numeric | Average sessions per week |
-| avg_session_duration_minutes | Numeric | Average session duration |
-| feature_usage_score | Numeric | Feature usage score (0-100) |
-| days_since_last_login | Numeric | Days since last login |
-| monthly_fee | Numeric | Monthly subscription fee |
-| payment_method | Categorical | Payment method (NetBanking, UPI, CreditCard, DebitCard) |
-| failed_payments_last_3_months | Numeric | Failed payment count |
-| discount_applied | Categorical | Discount status (Yes/No) |
-| support_tickets_count | Numeric | Support tickets raised |
-| avg_ticket_resolution_time_hours | Numeric | Average ticket resolution time |
-| customer_satisfaction_score | Numeric | Satisfaction score (1-5) |
-| marketing_email_opens_last_30_days | Numeric | Email opens in last 30 days |
+* Tenure Months
+* Plan Type
+* Region
+* Monthly Fee
+* Customer Satisfaction Score
+* Average Session Duration
+* Days Since Last Login
+* Feature Usage Score
+* Payment Method
+* Marketing Email Opens
 
-## 💻 Frontend Features
+## Future Improvements
 
-### Point Prediction
-- Interactive form with dropdowns for categorical features
-- Number inputs with min/max hints for numerical features
-- Real-time prediction results
-- Clean, modern design
+* Improve model performance using XGBoost
+* Add authentication and user management
+* Deploy application on Render or Railway
+* Add dashboards and visual analytics
+* Implement model monitoring
 
-### Batch Prediction
-- File upload interface
-- Automatic CSV processing
-- Downloadable results file
-- Progress indication
+## Author
 
-## 🎨 Brand Colors
+**Santhosh Reddy**
 
-- Primary: Teal (#00CED1)
-- Secondary: Dark Cyan (#008B8B)
-- Background: Dark (#1a1a2e)
-- Accent: Light Cyan for highlights
+Data Scientist skilled in Python, SQL, Machine Learning, Power BI, FastAPI, and Data Analytics.
 
-## 🔧 Technology Stack
+GitHub:
+https://github.com/santhoshreddy0047-lgtm
 
-- **Backend**: FastAPI
-- **ML Framework**: Scikit-learn
-- **Data Processing**: Pandas, NumPy
-- **Server**: Uvicorn
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-
-## 📝 Model Details
-
-- **Algorithm**: Classification (LogisticRegression/RandomForest)
-- **Features**: 15 input features
-- **Target**: Binary churn prediction (0 = No Churn, 1 = Churn)
-- **Preprocessing**: Basic cleaning and feature engineering
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
-## 👨‍💻 Author
-
-**Rakesh**
-- AI Instructor & Course Developer
-- Specializing in AI Engineering, ML, and Data Analytics
-
-## 🙏 Acknowledgments
-
-- Built with FastAPI framework
-- Powered by Scikit-learn
-- Developed for educational purposes
-
----
-
-**Note**: This application is designed for demonstration and educational purposes. For production use, consider additional features like authentication, logging, monitoring, and enhanced error handling.
+```
+```
