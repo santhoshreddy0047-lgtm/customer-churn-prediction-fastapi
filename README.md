@@ -116,6 +116,16 @@ http://127.0.0.1:8000/docs
 * Add dashboards and visual analytics
 * Implement model monitoring
 
+* ## Application Screenshots
+
+### Point Prediction
+
+![Point Prediction](screenshots/point_prediction.png.png)
+
+### Batch Prediction
+
+![Batch Prediction](screenshots/batch_prediction.png.png)
+
 ## Author
 
 **Santhosh Reddy**
