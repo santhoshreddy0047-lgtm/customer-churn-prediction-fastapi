@@ -130,10 +130,7 @@ http://127.0.0.1:8000/docs
 
 **Santhosh Reddy**
 
-Data Scientist skilled in Python, SQL, Machine Learning, Power BI, FastAPI, and Data Analytics.
-
-GitHub:
-https://github.com/santhoshreddy0047-lgtm
+GitHub: https://github.com/santhoshreddy0047-lgtm
 
 ```
 ```
